@@ -1,0 +1,17 @@
+.arrow_emb.second
+{
+    opacity: 0;
+}
+
+.img
+{
+    opacity: 0;
+    /* background: 'grey'; */
+}
+
+
+.bg
+{
+        y: '100%';
+        opacity: 1;
+}

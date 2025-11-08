@@ -1,3 +1,18 @@
 import './styles/style.css'
+import { lenis, startRAF, stopRAF, setOnScrollUpdate, rafTime } from './components/scroll'
+import sketchManager from './components/sketch/sketch'
+import taxi from './components/transition/transition'
+import { circleButton } from './components/buttons/circleButton' 
+import formAnimations from './components/forms/form'
+import textAnimations from './components/textAnimations/text'
 
-console.log('Hello from VS Code')
+
+
+
+// window.sketchManager = sketchManager
+// document.addEventListener('DOMContentLoaded', () => {
+//   sketchManager.init(document.body)
+// })
+
+
+
