@@ -2,6 +2,8 @@ import * as THREE from 'three'
 import globalSceneManager from './scene-manager'
 import { setOnScrollUpdate } from "../scroll"
 import gsap from 'gsap'
+import { Draggable } from "gsap/Draggable"
+gsap.registerPlugin(Draggable)
 
 let sm = null
 
@@ -157,6 +159,39 @@ class SketchManager {
     }, 0)
   
   }
+  
+
+  enableDrag() {
+    const container = document.querySelector('.work-swipe-container')
+    const wrapper = document.querySelector('.work-swipe-wrapper')
+    if (!container || !wrapper) return
+  
+    const dragMeshes = this.scene.children.filter(m =>
+      m.userData.isImageMesh &&
+      m.userData.originalData?.el?.dataset?.drag === "true"
+    )
+  
+    const maxX = 0
+    const minX = -window.innerWidth * 0.684
+  
+    const update = () => {
+      const offset = gsap.getProperty(container, "x") * 0.005
+      dragMeshes.forEach(mesh => {
+        mesh.position.x = mesh.userData.originalData.x + offset
+      })
+    }
+  
+    Draggable.create(container, {
+      type: "x",
+
+      inertia: true,
+      bounds: { minX, maxX },
+      onDrag: update,
+      onThrowUpdate: update,
+    })
+  }
+  
+  
   
 
   handleResize() {

@@ -66,6 +66,7 @@ export default class defaultRender extends Renderer {
     
     sketchManager.refreshMeshes();
     sketchManager.meshIn();
+    sketchManager.enableDrag();
     startRAF()
 
   

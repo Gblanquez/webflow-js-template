@@ -88,7 +88,7 @@ export default class globalTransition extends Transition {
 
                     gsap.set(to,
                         {
-                            position: 'absolute',
+                            position: 'static',
                             width: '100%',
                             height: 'auto',
                             zIndex: 'auto'
